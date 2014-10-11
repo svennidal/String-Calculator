@@ -9,8 +9,10 @@ public class Calculator {
 		if(text.equals("")) { return 0; }
 		// Adding two or more numbers together.
 		else if(text.contains(",")) { return sum(splitNos(text)); }
-		
+	
+		// If it's not an empty string and if it's not several numbers.
 		else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
+
 		// Just so we don't get a error for not returning anything..
 		return 69;
 	}
