@@ -10,6 +10,7 @@ public class Calculator {
 		// Adding two or more numbers together.
 		else if(text.contains(",")) { return sum(splitNos(text)); }
 		
+		else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
 		// Just so we don't get a error for not returning anything..
 		return 69;
 	}
