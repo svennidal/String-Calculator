@@ -8,8 +8,8 @@ public class Calculator {
 		// Empty string.
 		if(text.equals("")) { return 0; }
 		// Adding two or more numbers together.
-		else if(text.contains(",")) { return sum(splitNos(text)); }
-	
+		else if(text.contains(",")) { return sum(splitNosOnComma(text)); }
+		else if(text.contains("\n")) { return sum(splitNosOnNewLine(text)); }
 		// If it's not an empty string and if it's not several numbers.
 		else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
 
@@ -23,8 +23,13 @@ public class Calculator {
 	}
 
 	// Split string int an array of string, splitting elements at ",". 
-	private static String[] splitNos(String nos) {
+	private static String[] splitNosOnComma(String nos) {
 		return nos.split(",");
+	}
+	
+	// Split string int an array of string, splitting elements at "\n". 
+	private static String[] splitNosOnNewLine(String nos) {
+		return nos.split("\n");
 	}
 
 	// Return a sum of all elements in an array

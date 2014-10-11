@@ -26,4 +26,9 @@ public class CalculatorTest {
 		assertEquals(42, Calculator.add("42"));
 	}
 
+	@Test
+	public void testAddNewLineSplit() {
+		assertEquals(182, Calculator.add("91\n91"));
+	}
+
 }
