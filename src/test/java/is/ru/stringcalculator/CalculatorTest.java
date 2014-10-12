@@ -40,7 +40,17 @@ public class CalculatorTest {
 	public void testAddCustomDelimiter2() {
 		assertEquals(12, Calculator.add("//tits\n4tits2tits3tits3"));
 	}
+	
+	@Test
+	public void testAddCustomDelimiterWhiteSpace() {
+		assertEquals(12, Calculator.add("//tits and boobs\n4tits and boobs2tits and boobs3tits and boobs3"));
+	}
 
+	@Test
+	public void testAddCustomDelimiterWeirdos() {
+		assertEquals(12, Calculator.add("//i\n4i2i3i3"));
+	}
+	
 
 
 }

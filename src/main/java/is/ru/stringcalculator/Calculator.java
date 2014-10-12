@@ -45,10 +45,13 @@ public class Calculator {
 		return total;
 	}
 
+	// Returns true if the string starts with '//'.
 	private static boolean customDelimiter(String nos) {
 		return nos.startsWith("//");
 	}
 
+	// Split string at a custom delimeter.
+	// Return an array of elements from the inserted string.
 	private static String[] splitOnCustom(String nos) {
 		String deli = nos.substring(2, nos.indexOf('\n'));
 		String input = nos.substring(nos.indexOf('\n') + 1, nos.length());
