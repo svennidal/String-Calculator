@@ -8,12 +8,14 @@ public class Calculator {
 		// Empty string.
 		if(text.equals("")) { return 0; }
 		// Adding two or more numbers together.
+		// When the string does not start with a custom delimeiter
 		if(!customDelimiter(text)) {
 			if(text.contains(",")) { return sum(splitNosOnComma(text)); }
 			else if(text.contains("\n")) { return sum(splitNosOnNewLine(text)); }
 			// If it's not an empty string and if it's not several numbers.
 			else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
 		} else {
+			// If the string contains a custom delimeter.
 			return sum(splitOnCustom(text));
 		}
 
