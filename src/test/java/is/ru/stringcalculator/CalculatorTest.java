@@ -31,4 +31,10 @@ public class CalculatorTest {
 		assertEquals(182, Calculator.add("91\n91"));
 	}
 
+	@Test
+	public void testAddCustomDelimiter() {
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+
+
 }

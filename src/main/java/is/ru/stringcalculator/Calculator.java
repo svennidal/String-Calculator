@@ -8,10 +8,14 @@ public class Calculator {
 		// Empty string.
 		if(text.equals("")) { return 0; }
 		// Adding two or more numbers together.
-		else if(text.contains(",")) { return sum(splitNosOnComma(text)); }
-		else if(text.contains("\n")) { return sum(splitNosOnNewLine(text)); }
-		// If it's not an empty string and if it's not several numbers.
-		else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
+		if(!customDelimiter(text)) {
+			if(text.contains(",")) { return sum(splitNosOnComma(text)); }
+			else if(text.contains("\n")) { return sum(splitNosOnNewLine(text)); }
+			// If it's not an empty string and if it's not several numbers.
+			else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
+		} else {
+			return sum(splitOnCustom(text));
+		}
 
 		// Just so we don't get a error for not returning anything..
 		return 69;
@@ -40,6 +44,19 @@ public class Calculator {
 		}
 		return total;
 	}
+
+	private static boolean customDelimiter(String nos) {
+		return nos.startsWith("//");
+	}
+
+	private static String[] splitOnCustom(String nos) {
+		String deli = nos.substring(2, nos.indexOf('\n'));
+		String input = nos.substring(nos.indexOf('\n') + 1, nos.length());
+		return input.split(deli);
+	}
+
+
+
 
 
 
