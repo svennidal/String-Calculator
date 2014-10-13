@@ -67,7 +67,7 @@ public class CalculatorTest {
 	}
 	
 	// 10
-	@Test // Throws an exception for negative numbers.
+	@Test // Throws an exception for negative numbers with a custom message.
 	public void testAddNegativeExceptionMessage() {
 		try {
 			Calculator.add("-1,22,-3");
@@ -75,6 +75,12 @@ public class CalculatorTest {
 		} catch (RuntimeException ex) {
 			assertEquals("Negatives not allowed: -1, -3", ex.getMessage());
 		}
+	}
+
+	// 11
+	@Test // Ignores numbers greater than 100.
+	public void testAddGreaterThan1000() {
+		assertEquals(5, Calculator.add("2,1337,3"));
 	}
 
 

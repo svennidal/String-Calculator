@@ -46,7 +46,7 @@ public class Calculator {
 		ArrayList<String> minus = new ArrayList<String>();
 		for(String no : nos) {
 			if(strInt(no) < 0) { minus.add(no); }
-			else { total += strInt(no); }
+			else if(strInt(no) > 0 && strInt(no) < 1001) { total += strInt(no); }
 		}
 		if(!minus.isEmpty()) {
 			String negatives = "";
