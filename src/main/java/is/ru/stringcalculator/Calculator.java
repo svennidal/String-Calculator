@@ -69,15 +69,29 @@ public class Calculator {
 		return nos.startsWith("//");
 	}
 
+	// We exchange this one for a function that removes all symbols except
+	// decimals and minus sign.
 	// Split string at a custom delimeter.
 	// Return an array of elements from the inserted string.
+	/*
 	private static String[] splitOnCustom(String nos) {
 		String deli = nos.substring(2, nos.indexOf('\n'));
 		String input = nos.substring(nos.indexOf('\n') + 1, nos.length());
 		return input.split(deli);
 	}
+	*/
 
+	
+	// Split string with regex that changes all symbols that are not a 
+	// minus symbol or a decimal, with ','.
+	// Return an array of elements from the inserted string.
+	private static String[] splitOnCustom(String nos) {
+		//String deli = nos.substring(2, nos.indexOf('\n'));
+		String afterDelis = nos.substring(nos.indexOf('\n') + 1, nos.length());
+		String input = afterDelis.replaceAll("[^0-9&^-]+", ",");
 
+		return input.split(",");
+	}
 
 
 

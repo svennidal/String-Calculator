@@ -89,6 +89,12 @@ public class CalculatorTest {
 		assertEquals(6, Calculator.add("2\n2,2"));
 	}
 
+	// 13
+	@Test // Testing from part 7 of the assignment.
+	public void testAddSplitOnEverything() {
+		assertEquals(6, Calculator.add("//[***}\n1***2***3"));
+	}
+
 
 }
 
