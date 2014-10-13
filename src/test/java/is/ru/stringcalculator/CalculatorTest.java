@@ -101,6 +101,13 @@ public class CalculatorTest {
 		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
 	}
 
+	// 15
+	@Test // Testing from part 9 of the assignment, Multiple delimiter of any length.
+	public void testAddMultipleDelimetersOfAnyLength() {
+		assertEquals(42, Calculator.add("//[silverchair][neon][ballroom]\n10silverchair10ballroom12neon10"));
+	}
+	
+
 }
 
 /*
