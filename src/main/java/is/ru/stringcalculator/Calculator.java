@@ -1,10 +1,12 @@
 // Sveinn Dal Bjornsson - 10/11/2014 -- SvenniDal.com
 package is.ru.stringcalculator;
+import java.util.ArrayList;
 
 public class Calculator {
 
 	// The add function of the calculator.
 	public static int add(String text) {
+
 		// Empty string.
 		if(text.equals("")) { return 0; }
 		// Adding two or more numbers together.
@@ -41,8 +43,16 @@ public class Calculator {
 	// Return a sum of all elements in an array
 	private static int sum(String[] nos) {
 		int total = 0;
+		ArrayList<String> minus = new ArrayList<String>();
 		for(String no : nos) {
-			total += strInt(no);
+			if(strInt(no) < 0) { minus.add(no); }
+			else { total += strInt(no); }
+		}
+		if(!minus.isEmpty()) {
+			String negatives = "";
+			for(String neg : minus) { negatives += neg + ", "; }
+			negatives = negatives.substring(0, negatives.length() - 2);
+			throw new RuntimeException("Negatives not allowed: " + negatives);
 		}
 		return total;
 	}

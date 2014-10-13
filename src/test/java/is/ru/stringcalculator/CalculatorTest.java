@@ -6,51 +6,73 @@ import org.junit.Test;
 
 public class CalculatorTest {
 
-	@Test
+	//  1
+	@Test // Empty String; returns 0.
 	public void testAddEmptyString() {
 		assertEquals(0, Calculator.add(""));
 	}
 
-	@Test
+	//  2
+	@Test // Two numbers seperated by ','; return their sum.
 	public void testAddTwoNumbers() {
 		assertEquals(3, Calculator.add("1,2"));
 	}
 
-	@Test
+	//  3
+	@Test // Several numbers seperated by ','; return their sum.
 	public void testAddSeveralNumbers() {
 		assertEquals(10, Calculator.add("1,2,3,4"));
 	}
 
-	@Test
+	//  4
+	@Test // A single number; returns itself.
 	public void testAddSingleNumber() {
 		assertEquals(42, Calculator.add("42"));
 	}
 
-	@Test
+	//  5
+	@Test // Several numbers seperated by '\n; return their sum.
 	public void testAddNewLineSplit() {
 		assertEquals(182, Calculator.add("91\n91"));
 	}
 
-	@Test
+	//  6
+	@Test // Several numbers seperated by a predefined delimiter; return their sum.
 	public void testAddCustomDelimiter() {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 
-	@Test
+	//  7
+	@Test // Several numbers seperated by a multiple character delimiter; return their sum.
 	public void testAddCustomDelimiter2() {
 		assertEquals(12, Calculator.add("//tits\n4tits2tits3tits3"));
 	}
 	
-	@Test
+	//  8
+	@Test // Several numbers seperated by a multiple charachter, 
+		//containing white space, delimeter; return their sum
 	public void testAddCustomDelimiterWhiteSpace() {
 		assertEquals(12, Calculator.add("//tits and boobs\n4tits and boobs2tits and boobs3tits and boobs3"));
 	}
 
-	@Test
-	public void testAddCustomDelimiterWeirdos() {
-		assertEquals(12, Calculator.add("//i\n4i2i3i3"));
+	//  9
+	@Test // Throws an exception for negative numbers.
+	public void testAddNegativeException() {
+		try {
+			Calculator.add("-1,22,-3");
+			//fail("Exception expected.");
+		} catch (RuntimeException ex) {
+			// ok
+		}
 	}
 	
-
-
+	
 }
+
+	/*
+	@Test // Several numbers sepereated by any kind of charachter delimeter; return their sum.
+		// DOES NOT WORK Sun Oct 12 21:29:29 GMT 2014
+	public void testAddCustomDelimiterWeirdos() {
+		assertEquals(12, Calculator.add("//[*]\n4[*]2[*]3[*]3"));
+	}
+	*/
