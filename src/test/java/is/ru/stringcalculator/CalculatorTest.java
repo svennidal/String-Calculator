@@ -95,6 +95,11 @@ public class CalculatorTest {
 		assertEquals(6, Calculator.add("//[***}\n1***2***3"));
 	}
 
+	// 14
+	@Test // Testing from part 8 of the assignment.
+	public void testAddSplitOnEverythingAgain() {
+		assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));
+	}
 
 }
 
