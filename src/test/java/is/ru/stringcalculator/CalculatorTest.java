@@ -66,7 +66,18 @@ public class CalculatorTest {
 		}
 	}
 	
-	
+	// 10
+	@Test // Throws an exception for negative numbers.
+	public void testAddNegativeExceptionMessage() {
+		try {
+			Calculator.add("-1,22,-3");
+			//fail("Exception expected.");
+		} catch (RuntimeException ex) {
+			assertEquals("Negatives not allowed: -1, -3", ex.getMessage());
+		}
+	}
+
+
 }
 
 	/*
