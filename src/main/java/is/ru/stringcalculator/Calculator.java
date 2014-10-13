@@ -12,7 +12,8 @@ public class Calculator {
 		// Adding two or more numbers together.
 		// When the string does not start with a custom delimeiter
 		if(!customDelimiter(text)) {
-			if(text.contains(",")) { return sum(splitNosOnComma(text)); }
+			if(text.contains(",") && text.contains("\n")) { return sum(splitOnCommaAndNewLine(text)); }
+			else if(text.contains(",")) { return sum(splitNosOnComma(text)); }
 			else if(text.contains("\n")) { return sum(splitNosOnNewLine(text)); }
 			// If it's not an empty string and if it's not several numbers.
 			else if((!text.equals("")) && (!text.contains(","))) { return strInt(text); }
@@ -39,6 +40,12 @@ public class Calculator {
 	private static String[] splitNosOnNewLine(String nos) {
 		return nos.split("\n");
 	}
+	
+	// Split string on comma and new line. Return array of elements.
+	private static String[] splitOnCommaAndNewLine(String nos) {
+		return nos.split("\n|\\,");
+	}
+
 
 	// Return a sum of all elements in an array
 	private static int sum(String[] nos) {

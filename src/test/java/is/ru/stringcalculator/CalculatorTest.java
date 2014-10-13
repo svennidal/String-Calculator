@@ -83,9 +83,21 @@ public class CalculatorTest {
 		assertEquals(5, Calculator.add("2,1337,3"));
 	}
 
+	// 12
+	@Test
+	public void testAddSplitOnBoth() {
+		assertEquals(6, Calculator.add("2\n2,2"));
+	}
+
 
 }
 
+/*
+	@Test
+	public void testAddDelimeterOfAnyLengthSpecialSyntax() {
+		assertEquals(6, Calculator.add("//[kkk]\n1kkk2kkk3"));
+	}
+	*/
 	/*
 	@Test // Several numbers sepereated by any kind of charachter delimeter; return their sum.
 		// DOES NOT WORK Sun Oct 12 21:29:29 GMT 2014
